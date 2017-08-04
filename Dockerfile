@@ -18,9 +18,11 @@ RUN cd /var/www/sample-content \
  && mv tears/video/tears-of-steel/tears-of-steel-dref.mp4 . \
  && mv tears/video/tears-of-steel/tears-of-steel-64k.isma . \
  && mv tears/video/tears-of-steel/tears-of-steel-128k.isma . \
- && mv tears/video/tears-of-steel/tears-of-steel-400k.ismv . \
- && mv tears/video/tears-of-steel/tears-of-steel-800k.ismv . \
- && mv tears/video/tears-of-steel/tears-of-steel-1200k.ismv . \
+ && mv tears/video/tears-of-steel/tears-of-steel-1.ismv . \
+ && mv tears/video/tears-of-steel/tears-of-steel-2.ismv . \
+ && mv tears/video/tears-of-steel/tears-of-steel-3.ismv . \
+ && mv tears/video/tears-of-steel/tears-of-steel-4.ismv . \
+ && mv tears/video/tears-of-steel/tears-of-steel-5.ismv . \
  && rm -rf tears-of-steel-1.7.31.zip tears/
 
 
@@ -28,11 +30,13 @@ COPY sample-content.conf.in /etc/apache2/conf.d/sample-content.conf.in
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 # copy logo video
-COPY content/logo_5s_720x406.mp4 /var/www/sample-content/logo_5s_720x406.mp4
-COPY content/logo_5s_568x320.mp4 /var/www/sample-content/logo_5s_568x320.mp4
-COPY content/logo_5s_420x236.mp4 /var/www/sample-content/logo_5s_420x236.mp4
-COPY content/logo_5s_audio.mp4 /var/www/sample-content/logo_5s_audio.mp4
-COPY content/logo_5s_dref.mp4 /var/www/sample-content/logo_5s_dref.mp4
+COPY content/remix08_400k.mp4 /var/www/sample-content/remix08_400k.mp4
+COPY content/remix08_800k.mp4 /var/www/sample-content/remix08_800k.mp4
+COPY content/remix08_1200k.mp4 /var/www/sample-content/remix08_1200k.mp4
+COPY content/remix08_2000k.mp4 /var/www/sample-content/remix08_2000k.mp4
+COPY content/remix08_3000k.mp4 /var/www/sample-content/remix08_3000k.mp4
+COPY content/remix08_audio.mp4 /var/www/sample-content/remix08_audio.mp4
+COPY content/remix08_dref.mp4 /var/www/sample-content/remix08_dref.mp4
 
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
