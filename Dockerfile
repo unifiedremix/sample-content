@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.13
 
 # install
 RUN apk --update add apache2 \
@@ -12,18 +12,9 @@ RUN mkdir -p /run/apache2 \
 
 # download tears of steel
 RUN cd /var/www/sample-content \
- && wget http://repository.unified-streaming.com/tears-of-steel-1.7.31.zip \
- && mkdir tears \
- && unzip tears-of-steel-1.7.31.zip -d tears \
- && mv tears/video/tears-of-steel/tears-of-steel-dref.mp4 . \
- && mv tears/video/tears-of-steel/tears-of-steel-64k.isma . \
- && mv tears/video/tears-of-steel/tears-of-steel-128k.isma . \
- && mv tears/video/tears-of-steel/tears-of-steel-1.ismv . \
- && mv tears/video/tears-of-steel/tears-of-steel-2.ismv . \
- && mv tears/video/tears-of-steel/tears-of-steel-3.ismv . \
- && mv tears/video/tears-of-steel/tears-of-steel-4.ismv . \
- && mv tears/video/tears-of-steel/tears-of-steel-5.ismv . \
- && rm -rf tears-of-steel-1.7.31.zip tears/
+ && wget https://usp-s3-storage.s3.eu-central-1.amazonaws.com/tears-of-steel-remix-demo.zip \
+ && unzip tears-of-steel-remix-demo.zip -d /var/www/sample-content/ \
+ && rm -rf tears-of-steel-remix-demo.zip
 
 
 COPY sample-content.conf.in /etc/apache2/conf.d/sample-content.conf.in
